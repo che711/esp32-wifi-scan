@@ -47,7 +47,7 @@ static void scanWiFi()
 
   // Free RAM
   WiFi.scanDelete();
-  Serial.println("-------------------------------------");
+  Serial.println("------------------------------------");
 }
 
 void setup()
@@ -69,9 +69,9 @@ void setup()
 void loop()
 {
   Serial.println();
-  Serial.println("-------------------------------------");
+  Serial.println("------------------------------------");
   Serial.println("Default Wi-Fi band scan");
-  Serial.println("-------------------------------------");
+  Serial.println("------------------------------------");
 
 #if ESP_IDF_VERSION >= ESP_IDF_VERSION_VAL(5, 4, 2)
   WiFi.setBandMode(WIFI_BAND_MODE_AUTO);
@@ -81,17 +81,17 @@ void loop()
 #if CONFIG_SOC_WIFI_SUPPORT_5G
   delay(1000);
 
-  Serial.println("-------------------------------------");
+  Serial.println("------------------------------------");
   Serial.println("2.4 GHz band scan");
-  Serial.println("-------------------------------------");
+  Serial.println("------------------------------------");
   WiFi.setBandMode(WIFI_BAND_MODE_2G_ONLY);
   scanWiFi();
 
   delay(1000);
 
-  Serial.println("-------------------------------------");
+  Serial.println("------------------------------------");
   Serial.println("5 GHz band scan");
-  Serial.println("-------------------------------------");
+  Serial.println("------------------------------------");
   WiFi.setBandMode(WIFI_BAND_MODE_5G_ONLY);
   scanWiFi();
 #endif
