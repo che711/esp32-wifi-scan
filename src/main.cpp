@@ -53,12 +53,15 @@ static void scanWiFi()
 void setup()
 {
   Serial.begin(115200);
-  delay(200);
+
+  unsigned long start = millis();
+  while (!Serial && millis() - start < 3000) {
+    delay(10);
+  }
 
   Serial.println();
   Serial.println("ESP32 Wi-Fi Scanner starting...");
 
-  // Station mode only
   WiFi.mode(WIFI_STA);
   WiFi.disconnect(true);
   delay(100);
